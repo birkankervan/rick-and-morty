@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { SWRConfig } from "swr";
+import { BrowserRouter as Router } from "react-router-dom";
+import Component from "./components/Layout";
+
+const URL = "https://rickandmortyapi.com/api";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <SWRConfig
+        value={{
+          revalidateOnFocus: false,
+          fetcher: async (path) => {
+            try {
+              const res = await axios.get(URL + path);
+              return res.data;
+            } catch (err) {
+              console.log({ err });
+            }
+          },
+        }}
+      >
+        <Component />
+      </SWRConfig>
+    </Router>
   );
 }
 
