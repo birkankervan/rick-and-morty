@@ -3,7 +3,7 @@ import React from "react";
 const InputCheckbox = React.memo(({ title, options, onChange }) => {
   return (
     <div className="flex flex-col justify-center items-center pb-2">
-      <h2 className="text-center mb-2 text-xl font-normal text-gray-500 dark:text-gray-200">
+      <h2 className="text-center mb-2 text-xl font-normal text-gray-500 ">
         {title}
       </h2>
       <div className="flex xl:flex-row flex-col ">

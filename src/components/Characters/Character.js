@@ -17,13 +17,9 @@ const Character = React.memo(({ character }) => {
         </Link>
       </div>
       <div className="text-center">
-        <p className="text-2xl text-gray-800 dark:text-white">
-          {character.name}
-        </p>
-        <p className="text-xl text-gray-500 dark:text-gray-200 font-light">
-          {character.species}
-        </p>
-        <p className="text-md text-gray-500 dark:text-gray-400 max-w-xs pt-4 pb-1 font-light">
+        <p className="text-2xl text-gray-800 ">{character.name}</p>
+        <p className="text-xl text-gray-500  font-light">{character.species}</p>
+        <p className="text-md text-gray-500  max-w-xs pt-4 pb-1 font-light">
           Status:{" "}
           <span
             className={cx("font-semibold", {
@@ -34,20 +30,20 @@ const Character = React.memo(({ character }) => {
             {character.status}
           </span>
         </p>
-        <p className="text-md text-gray-500 dark:text-gray-400 max-w-xs font-light">
+        <p className="text-md text-gray-500  max-w-xs font-light">
           Location:{" "}
           <span className="font-semibold">{character.location.name}</span>
         </p>
-        <p className="text-md text-gray-500 dark:text-gray-400 max-w-xs font-light">
+        <p className="text-md text-gray-500  max-w-xs font-light">
           Origin: <span className="font-semibold">{character.origin.name}</span>
         </p>
-        <p className="text-md text-gray-500 dark:text-gray-400 max-w-xs font-light">
+        <p className="text-md text-gray-500  max-w-xs font-light">
           Type:{" "}
           <span className="font-semibold">
             {character.type ? character.type : "-"}
           </span>
         </p>
-        <p className="text-md text-gray-500 dark:text-gray-400 max-w-xs font-light">
+        <p className="text-md text-gray-500  max-w-xs font-light">
           Gender: <span className="font-semibold">{character.gender}</span>
         </p>
       </div>

@@ -32,21 +32,21 @@ const CharacterDetail = () => {
               <h2 className="text-2xl font-bold leading-7 text-gray-100 sm:text-3xl sm:truncate">
                 {character.name}
               </h2>
-              <p className="mt-1 max-w-2xl text-sm text-gray-400 dark:text-gray-200">
+              <p className="mt-1 max-w-2xl text-sm text-gray-400 ">
                 <span className="font-bold">Gender:</span> {character?.gender}
               </p>
-              <p className="mt-1 max-w-2xl text-sm text-gray-400 dark:text-gray-200">
+              <p className="mt-1 max-w-2xl text-sm text-gray-400 ">
                 <span className="font-bold">Species:</span> {character?.species}
               </p>
-              <p className="mt-1 max-w-2xl text-sm text-gray-400 dark:text-gray-200">
+              <p className="mt-1 max-w-2xl text-sm text-gray-400 ">
                 <span className="font-bold">Location:</span>{" "}
                 {character?.location?.name}
               </p>
-              <p className="mt-1 max-w-2xl text-sm text-gray-400 dark:text-gray-200">
+              <p className="mt-1 max-w-2xl text-sm text-gray-400 ">
                 <span className="font-bold">Origin:</span>{" "}
                 {character?.origin?.name}
               </p>
-              <p className="mt-1 max-w-2xl text-sm text-gray-400 dark:text-gray-200">
+              <p className="mt-1 max-w-2xl text-sm text-gray-400 ">
                 <span className="font-bold">Type:</span>{" "}
                 {character?.type !== "" ? character?.type : "-"}
               </p>
@@ -62,8 +62,8 @@ const CharacterDetail = () => {
           </p>
         </div>
       </div>
-      <div className="p-8 bg-white dark:bg-gray-800 rounded-lg shadow pb-16 ">
-        <p className="text-center text-3xl font-bold text-gray-800 dark:text-white">
+      <div className="p-8 bg-white  rounded-lg shadow pb-16 ">
+        <p className="text-center text-3xl font-bold text-gray-800 ">
           All Episodes with This Character
         </p>
 

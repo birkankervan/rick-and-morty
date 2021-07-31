@@ -45,7 +45,7 @@ const Characters = () => {
             <h2 className="text-2xl font-bold leading-7 text-gray-100 sm:text-3xl sm:truncate">
               All Characters
             </h2>
-            <p className="mt-1 max-w-2xl text-sm text-gray-400 dark:text-gray-200">
+            <p className="mt-1 max-w-2xl text-sm text-gray-400 ">
               Character Count : {character?.info?.count}
             </p>
           </div>

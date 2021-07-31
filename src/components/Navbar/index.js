@@ -78,6 +78,8 @@ const Navmenu = () => {
           <a
             className="block lg:inline-block mt-4 lg:mt-0 mr-10 "
             href="https://www.linkedin.com/in/emre-birkan-kervan-8858b1143/"
+            target="_blank"
+            rel="noreferrer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -99,6 +101,8 @@ const Navmenu = () => {
           <a
             className="block lg:inline-block mt-4 lg:mt-0 "
             href="https://github.com/birkankervan"
+            target="_blank"
+            rel="noreferrer"
           >
             <svg
               className="octicon octicon-mark-github v-align-middle"

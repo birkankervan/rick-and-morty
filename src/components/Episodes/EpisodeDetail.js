@@ -74,20 +74,20 @@ const EpisodeDetail = () => {
             <h2 className="text-2xl font-bold leading-7 text-gray-100 sm:text-3xl sm:truncate">
               {episode?.name}
             </h2>
-            <p className="mt-1 max-w-2xl text-sm text-gray-400 dark:text-gray-200">
+            <p className="mt-1 max-w-2xl text-sm text-gray-400 ">
               {episode?.episode}
             </p>
           </div>
-          <p className="mt-1 max-w-2xl font-light text-gray-300 dark:text-gray-200">
+          <p className="mt-1 max-w-2xl font-light text-gray-300 ">
             {episode?.air_date}
           </p>
         </div>
       </div>
-      <div className="p-8 bg-white dark:bg-gray-800 rounded-lg shadow pb-16 ">
-        <p className="text-center text-3xl font-bold text-gray-800 dark:text-white">
+      <div className="p-8 bg-white  rounded-lg shadow pb-16 ">
+        <p className="text-center text-3xl font-bold text-gray-800 ">
           All Characters in this Episode
         </p>
-        <p className="text-center mb-2 text-xl font-normal text-gray-500 dark:text-gray-200">
+        <p className="text-center mb-2 text-xl font-normal text-gray-500 ">
           Meat the all characters in this Episode
         </p>
         <div className="shadow-lg rounded-2xl w-auto p-4 bg-white flex justify-between items-center flex-col xl:flex-row">
