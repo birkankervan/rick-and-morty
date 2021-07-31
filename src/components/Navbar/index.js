@@ -100,7 +100,7 @@ const Navmenu = () => {
           </a>
           <a
             className="block lg:inline-block mt-4 lg:mt-0 "
-            href="https://github.com/birkankervan"
+            href="https://github.com/birkankervan/rick-and-morty"
             target="_blank"
             rel="noreferrer"
           >
