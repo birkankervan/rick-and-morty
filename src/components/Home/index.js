@@ -8,6 +8,7 @@ const Home = () => {
           src="https://media.cdn.adultswim.com/uploads/20210428/21428161947-rick-and-morty-logo-png.png"
           alt="Rick and Morty"
         />
+
         <a
           href="https://www.adultswim.com/videos/rick-and-morty"
           className="block bg-white hover:bg-gray-100 py-3 px-4 rounded-lg text-lg text-gray-800 font-bold uppercase mt-10"

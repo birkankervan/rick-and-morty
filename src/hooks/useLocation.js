@@ -1,9 +1,8 @@
 import useSWR from "swr";
 
-const useLocation = () => {
-  const { data, error } = useSWR("/location", {
-
-  });
+const useLocation = ({ page = "", name = "" }) => {
+  const url = `/location/?page=${page}&name=${name}`;
+  const { data, error } = useSWR(url, {});
   return {
     location: data,
     isLoading: !error && !data,

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import cx from "classnames";
 
 const Navmenu = () => {
   const [toggle, setToggle] = useState(true);
+  const location = useLocation();
+  const { pathname } = location;
+
   return (
     <>
       <nav className="flex bg-white bg-opacity-90 flex-wrap items-center justify-between p-4 text-lg font-semibold z-10">
@@ -44,19 +47,28 @@ const Navmenu = () => {
           )}
         >
           <Link
-            className="block lg:inline-block mt-4 lg:mt-0 mr-10 text-black hover:text-blue-600"
+            className={cx(
+              "block lg:inline-block mt-4 lg:mt-0 mr-10 text-black hover:text-blue-600",
+              { "text-blue-600": pathname === "/episodes" }
+            )}
             to="/episodes"
           >
             Episodes
           </Link>
           <Link
-            className="block lg:inline-block mt-4 lg:mt-0 mr-10 text-black hover:text-blue-600"
+            className={cx(
+              "block lg:inline-block mt-4 lg:mt-0 mr-10 text-black hover:text-blue-600",
+              { "text-blue-600": pathname === "/characters" }
+            )}
             to="/characters"
           >
             Characters
           </Link>
           <Link
-            className="block lg:inline-block mt-4 lg:mt-0 text-black hover:text-blue-600"
+            className={cx(
+              "block lg:inline-block mt-4 lg:mt-0 mr-10 text-black hover:text-blue-600",
+              { "text-blue-600": pathname === "/locations" }
+            )}
             to="/locations"
           >
             Locations

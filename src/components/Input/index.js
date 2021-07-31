@@ -1,10 +1,10 @@
 import React from "react";
 
-const Input = ({ setName }) => {
+const Input = React.memo(({ setName, placeHolder }) => {
   return (
     <>
-      <div className="relative flex items-center w-full lg:w-64 h-full group">
-        <div className="absolute z-50 flex items-center justify-center block w-auto h-10 p-3 pr-2 text-sm text-gray-500 uppercase cursor-pointer sm:hidden">
+      <div className="relative flex items-center w-full lg:w-72 h-full group">
+        <div className="absolute z-50 flex items-center justify-center  w-auto h-10 p-3 pr-2 text-sm text-gray-500 uppercase cursor-pointer sm:hidden">
           <svg
             fill="none"
             className="relative w-5 h-5"
@@ -27,7 +27,7 @@ const Input = ({ setName }) => {
         <input
           type="text"
           className="block w-full py-1.5 pl-10 pr-4 leading-normal rounded-2xl focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 ring-opacity-90 bg-gray-300 dark:bg-gray-800 text-gray-900 aa-input"
-          placeholder="Search"
+          placeholder={placeHolder}
           onChange={(e) => setName(e.target.value)}
         />
         <div className="absolute right-0 hidden h-auto px-2 py-1 mr-2 text-xs text-gray-400 border border-gray-300 rounded-2xl md:block">
@@ -36,6 +36,6 @@ const Input = ({ setName }) => {
       </div>
     </>
   );
-};
+});
 
 export default Input;
