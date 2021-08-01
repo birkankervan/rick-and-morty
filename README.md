@@ -18,7 +18,7 @@ Karakterler arasında gezebilir, hangi karakterlerin hangi bölümlerde bulundu�
 
 ## **Kullanılan Kütüphanelerin Amaçları**
 
-React memoizes hookları kullanıldı. Bu sayede component lerin gereksiz yere render edilmesi önlendi. Maliyetli fonksiyonlar memoizes edilerek verimliliği artırıldı.
+React memoizes hookları kullanıldı. Bu sayede component lerin gereksiz yere render edilmesi önlendi. Maliyetli fonksiyonlar memoizes edilerek verimliliği artırıldı. `React.lazy` ve `Suspense` ile codesplit yapıldı.
 
 ### SWR
 Bir fetch hookudur. Fetch edilen datayı cahcler böylelikle tekrar render ın çnüne geçer. Aynı zamanda kendi içersine ek hooklar yazarak yeni özellikler getirebilirsiniz. Ben bunu `/episodes` sekmesindeki karakterleri bir fetch işlemi yapmadan filtrelemek için kullandım. `hooks/useCharacter.js` dosyasını inceleyebilirsiniz.
