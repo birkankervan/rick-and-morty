@@ -1,5 +1,7 @@
 ### Rick And Morty App
 
+https://rick-and-morty-five-dusky.vercel.app/
+
 Bu uygulama React js kullanılarak oluşturulmuştur.
 
 Bu web uygulaması ile rick and morty bölümlerini inceleyebilirsiniz. Her bölüm içerisndeki karakterleri filtreleyebilir veya search box ı kullanarak arama yapabilirsiniz.
