@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 
-import Table from "../Table";
 import useLocation from "../../hooks/useLocation";
 import PageTitle from "../PageTitle";
+import Loading from "../Loading";
+
+const Table = React.lazy(() => import("../Table"));
 
 const NextPage = React.memo(({ page }) => {
   const { location } = useLocation({ page: page + 1 });
@@ -24,18 +26,20 @@ const Location = React.memo(() => {
           countTitles={"Location"}
           setName={setName}
         />
-        <Table
-          titles={{
-            name: "Location Name",
-            dimension: "Location Dimensional",
-            residents: "Residents Count",
-          }}
-          page={page}
-          setPage={setPage}
-          episode={location}
-          pagination={true}
-          NextPage={NextPage}
-        ></Table>
+        <Suspense fallback={<Loading />}>
+          <Table
+            titles={{
+              name: "Location Name",
+              dimension: "Location Dimensional",
+              residents: "Residents Count",
+            }}
+            page={page}
+            setPage={setPage}
+            episode={location}
+            pagination={true}
+            NextPage={NextPage}
+          />
+        </Suspense>
       </div>
     </div>
   );

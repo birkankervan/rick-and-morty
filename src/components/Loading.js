@@ -2,7 +2,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="animate-bounce h-screen m-auto flex">
+    <div className="animate-bounce h-screen m-auto flex w-full">
       {" "}
       <img
         src="https://media.cdn.adultswim.com/uploads/20210428/21428161947-rick-and-morty-logo-png.png"

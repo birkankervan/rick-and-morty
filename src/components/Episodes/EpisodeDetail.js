@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useMemo, useState, Suspense } from "react";
 import { useParams } from "react-router-dom";
+import cx from "classnames";
 
 import useEpisode from "./../../hooks/useEpisodes";
 import useCharacter from "./../../hooks/useCharacter";
 
 import Loading from "./../Loading";
-import Character from "../Characters/Character";
+
 import Input from "../Input";
 import InputCheckbox from "./../Input/InputCheckbox";
-import cx from "classnames";
+
+const Character = React.lazy(() => import("../Characters/Character"));
 
 const EpisodeDetail = () => {
   const { id } = useParams();
@@ -29,10 +31,17 @@ const EpisodeDetail = () => {
   const { status, gender } = filter;
 
   const { episode } = useEpisode({ id });
+
   const { character, filtered, isLoading } = useCharacter({
-    characters: episode?.characters?.map(
-      (characterNo) => +characterNo.split("/")[5]
-    ),
+    characters:
+      episode &&
+      episode?.characters?.map(
+        (characterNo) =>
+          +characterNo.replaceAll(
+            "https://rickandmortyapi.com/api/character/",
+            ""
+          )
+      ),
     filter,
   });
 
@@ -41,30 +50,36 @@ const EpisodeDetail = () => {
   const filterWithText = (text) => {
     setFilter({ ...filter, name: text.length ? text.toLowerCase() : null });
   };
-  const filterWithCheck = (filteredSection, checked, value) => {
-    if (filteredSection === "status") {
-      setFilter({
-        ...filter,
-        [filteredSection]: status.map((item) => {
-          if (item.value === value) {
-            return { value, checked };
-          }
-          return item;
-        }),
-      });
-    }
-    if (filteredSection === "gender") {
-      setFilter({
-        ...filter,
-        [filteredSection]: gender.map((item) => {
-          if (item.value === value) {
-            return { value, checked };
-          }
-          return item;
-        }),
-      });
-    }
-  };
+
+  const filterWithCheck = useMemo(
+    () => (filteredSection, checked, value) => {
+      if (filteredSection === "status") {
+        setFilter({
+          ...filter,
+          [filteredSection]: status.map((item) => {
+            if (item.value === value) {
+              return { value, checked };
+            }
+            return item;
+          }),
+        });
+      }
+      if (filteredSection === "gender") {
+        setFilter({
+          ...filter,
+          [filteredSection]: gender.map((item) => {
+            if (item.value === value) {
+              return { value, checked };
+            }
+            return item;
+          }),
+        });
+      }
+    },
+    [filter, gender, status]
+  );
+
+  if (isLoading && !character && !filtered) return <Loading />;
 
   return (
     <div className="container mx-auto px-4 ">
@@ -147,23 +162,16 @@ const EpisodeDetail = () => {
             <p className="font-semibold">Character Filter</p>
           </div>
         </div>
-        <div
-          className={
-            isLoading
-              ? "flex justify-center align-center"
-              : "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2"
-          }
-        >
-          {isLoading && (
-            <div>
-              <Loading />
-            </div>
-          )}
 
-          {(filtered ? filtered : character)?.map((item) => (
-            <Character key={item.id} character={item} />
-          ))}
-        </div>
+        <Suspense fallback={<Loading />}>
+          <div
+            className={"grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2"}
+          >
+            {(filtered?.length ? filtered : character)?.map((item) => (
+              <Character key={item.id} character={item} />
+            ))}
+          </div>
+        </Suspense>
       </div>
     </div>
   );

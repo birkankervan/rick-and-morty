@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
 import useCharacter from "../../hooks/useCharacter";
 import Loading from "../Loading";
 import { useParams } from "react-router-dom";
 import cx from "classnames";
 import useEpisode from "../../hooks/useEpisodes";
-import Table from "../Table";
+
+const Table = React.lazy(() => import("../Table"));
 
 const CharacterDetail = () => {
   const { id } = useParams();
@@ -74,16 +75,18 @@ const CharacterDetail = () => {
             </div>
           )}
 
-          <Table
-            titles={{
-              name: "Episode Name",
-              air_date: "Air Date",
-              episode: "Episode",
-              characters: "Character Count",
-            }}
-            pagination={false}
-            episode={episode}
-          />
+          <Suspense fallback={<Loading />}>
+            <Table
+              titles={{
+                name: "Episode Name",
+                air_date: "Air Date",
+                episode: "Episode",
+                characters: "Character Count",
+              }}
+              pagination={false}
+              episode={episode}
+            />
+          </Suspense>
         </div>
       </div>
     </div>

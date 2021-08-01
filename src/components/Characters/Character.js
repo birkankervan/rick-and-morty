@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Character = React.memo(({ character }) => {
   return (
-    <div className="p-4 ">
+    <div className="p-4 character">
       <div className="text-center mb-4 opacity-90">
         <Link to={`/character/${character.id}`} className="block relative">
           <img

@@ -6,10 +6,12 @@ import EpisodeDetail from "./Episodes/EpisodeDetail";
 import CharacterDetail from "./Characters/CharacterDetail";
 import Characters from "./Characters";
 import Location from "./Location";
+import ScrollToTop from "../hooks/ScroolTop";
 
 const Layout = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Navbar />
       <Switch>
         <Route exact path="/">

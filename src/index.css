@@ -12,4 +12,12 @@
     background-attachment: fixed;
     background-position: center;
   }
+  tr {
+    content-visibility: auto;
+    contain-intrinsic-size: 81px;
+  }
+  .character {
+    content-visibility: auto;
+    contain-intrinsic-size: 456px;
+  }
 }
