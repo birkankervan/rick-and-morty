@@ -21,7 +21,7 @@ const useCharacter = ({ characters, filter, page = "", name = "" }) => {
 
     filtered =
       data &&
-      data.filter(
+      (Array.isArray(data) ? data : [data])?.filter(
         (character) =>
           character.name.toLowerCase().includes(name) ||
           character.species.toLowerCase().includes(name) ||
